@@ -5,13 +5,10 @@ USER root
 WORKDIR /usr/dbt
 ENV dbt_PROFILES_DIR=/usr/dbt
 
-RUN echo "HERE IT IS ---------- $dbt_PROFILES_DIR"
+COPY . /usr/imports
 
-COPY . /usr/dbt/
+RUN mv -rf /usr/imports/* /usr/dbt
 
-CMD ["python", "/usr/dbt/scripts/serviceaccount.py"]
+VOLUME [ "/usr/dbt" ]
 
-RUN   dbt deps >> deps.txt
-RUN   dbt test >> test.txt
-
-CMD ["python", "/app/src/storereport.py"]
+CMD ["/entrypoint.sh"]
