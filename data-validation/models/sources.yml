@@ -1,0 +1,581 @@
+version: 2
+
+sources:
+  - name: protheus_specific
+    database: "{{ target.project }}"
+    schema: "{{ target.dataset }}"
+
+    quoting:
+      database: true
+      schema: true
+      identifier: true
+
+    loader: smartlink
+    loaded_at_field: _ingestionDateTime
+
+    freshness:
+      warn_after: {count: 30, period: day}
+      error_after: {count: 90, period: day}
+
+    tables:
+      #native protheus tables
+      - name: sc2 
+        identifier: stg_protheus_carol_sc2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk2 
+        identifier: stg_protheus_carol_fk2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sa3 
+        identifier: stg_protheus_carol_sa3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: se8 
+        identifier: stg_protheus_carol_se8
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sd7 
+        identifier: stg_protheus_carol_sd7
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk3 
+        identifier: stg_protheus_carol_fk3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq6 
+        identifier: stg_protheus_carol_cq6
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sx5 
+        identifier: stg_protheus_carol_sx5
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fka 
+        identifier: stg_protheus_carol_fka
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cto 
+        identifier: stg_protheus_carol_cto
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cv0 
+        identifier: stg_protheus_carol_cv0
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ab7 
+        identifier: stg_protheus_carol_ab7
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc6 
+        identifier: stg_protheus_carol_sc6
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk5 
+        identifier: stg_protheus_carol_fk5
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq5 
+        identifier: stg_protheus_carol_cq5
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: se2 
+        identifier: stg_protheus_carol_se2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cnb 
+        identifier: stg_protheus_carol_cnb
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cts 
+        identifier: stg_protheus_carol_cts
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sb9 
+        identifier: stg_protheus_carol_sb9
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cnf 
+        identifier: stg_protheus_carol_cnf
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk8 
+        identifier: stg_protheus_carol_fk8
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: i13 
+        identifier: stg_protheus_carol_i13
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cb8 
+        identifier: stg_protheus_carol_cb8
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cv3 
+        identifier: stg_protheus_carol_cv3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sb1 
+        identifier: stg_protheus_carol_sb1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: se1 
+        identifier: stg_protheus_carol_se1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sa2 
+        identifier: stg_protheus_carol_sa2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc3 
+        identifier: stg_protheus_carol_sc3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sd3 
+        identifier: stg_protheus_carol_sd3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sbm 
+        identifier: stg_protheus_carol_sbm
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: aib 
+        identifier: stg_protheus_carol_aib
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ab8 
+        identifier: stg_protheus_carol_ab8
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk1 
+        identifier: stg_protheus_carol_fk1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ct1 
+        identifier: stg_protheus_carol_ct1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sb6 
+        identifier: stg_protheus_carol_sb6
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: qlc 
+        identifier: stg_protheus_carol_qlc
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: f76 
+        identifier: stg_protheus_carol_f76
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cb7 
+        identifier: stg_protheus_carol_cb7
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk7 
+        identifier: stg_protheus_carol_fk7
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: qlb 
+        identifier: stg_protheus_carol_qlb
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cve 
+        identifier: stg_protheus_carol_cve
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: f75 
+        identifier: stg_protheus_carol_f75
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: seh 
+        identifier: stg_protheus_carol_seh
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk9 
+        identifier: stg_protheus_carol_fk9
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ct0 
+        identifier: stg_protheus_carol_ct0
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sd2 
+        identifier: stg_protheus_carol_sd2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk6 
+        identifier: stg_protheus_carol_fk6
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc7 
+        identifier: stg_protheus_carol_sc7
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ct2 
+        identifier: stg_protheus_carol_ct2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fk4 
+        identifier: stg_protheus_carol_fk4
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cns 
+        identifier: stg_protheus_carol_cns
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq3 
+        identifier: stg_protheus_carol_cq3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: qld 
+        identifier: stg_protheus_carol_qld
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sd4 
+        identifier: stg_protheus_carol_sd4
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sf1 
+        identifier: stg_protheus_carol_sf1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cna 
+        identifier: stg_protheus_carol_cna
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ct5 
+        identifier: stg_protheus_carol_ct5
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sb3 
+        identifier: stg_protheus_carol_sb3
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc8 
+        identifier: stg_protheus_carol_sc8
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq2 
+        identifier: stg_protheus_carol_cq2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: ab6 
+        identifier: stg_protheus_carol_ab6
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc4 
+        identifier: stg_protheus_carol_sc4
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sg1 
+        identifier: stg_protheus_carol_sg1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: se5 
+        identifier: stg_protheus_carol_se5
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cn9 
+        identifier: stg_protheus_carol_cn9
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sf2 
+        identifier: stg_protheus_carol_sf2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq0 
+        identifier: stg_protheus_carol_cq0
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sf4 
+        identifier: stg_protheus_carol_sf4
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc5 
+        identifier: stg_protheus_carol_sc5
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq1 
+        identifier: stg_protheus_carol_cq1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq4 
+        identifier: stg_protheus_carol_cq4
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: scj 
+        identifier: stg_protheus_carol_scj
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc1 
+        identifier: stg_protheus_carol_sc1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sd1 
+        identifier: stg_protheus_carol_sd1
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sc9 
+        identifier: stg_protheus_carol_sc9
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: fkb 
+        identifier: stg_protheus_carol_fkb
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cvf 
+        identifier: stg_protheus_carol_cvf
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: cq7 
+        identifier: stg_protheus_carol_cq7
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sb2 
+        identifier: stg_protheus_carol_sb2
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
+      - name: sck 
+        identifier: stg_protheus_carol_sck
+        tests:
+          - dbt_expectations.expect_compound_columns_to_be_unique:
+              column_list: ["mdmTenantId", "company_group", "R_E_C_N_O_"]
+              config:
+                severity: warn
