@@ -7,7 +7,7 @@ ENV dbt_PROFILES_DIR=/usr/dbt
 
 COPY . /usr/imports
 
-RUN mv -rf /usr/imports/* /usr/dbt
+RUN mv /usr/imports/* /usr/dbt
 
 VOLUME [ "/usr/dbt" ]
 
