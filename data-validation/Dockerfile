@@ -4,6 +4,8 @@ USER root
 
 WORKDIR /usr/dbt
 
+RUN echo "HERE IT IS ---------- $dbt_PROFILES_DIR"
+
 COPY . /usr/dbt/
 
 CMD ["python", "/usr/dbt/scripts/serviceaccount.py"]
