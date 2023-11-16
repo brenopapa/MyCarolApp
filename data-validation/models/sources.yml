@@ -27,21 +27,18 @@ sources:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
               - is_valid_device
-              config:
-                severity: warn
+
           - name: mdmeventdate
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
-              config:
-                severity: warn
+
           - name: mdmpersonid
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
               - is_valid_employee
-              config:
-                severity: warn
+
           - name: nsrcode
             tests:
               - dbt_expectations.expect_column_to_exist
@@ -49,8 +46,6 @@ sources:
               - dbt_utils.accepted_range:
                   min_value: 0
                   inclusive: false
-              config:
-                severity: warn
 
       - name: employee 
         identifier: employee
@@ -59,20 +54,16 @@ sources:
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
-              config:
-                severity: warn
+
           - name: mdmname
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
-              config:
-                severity: warn
+
           - name: dataadmissao
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
-              config:
-                severity: warn
 
       - name: mdmcompany 
         identifier: mdmcompany
@@ -81,12 +72,9 @@ sources:
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
-              config:
-                severity: warn
+
           - name: mdmtaxid
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
               - is_valid_taxid
-              config:
-                severity: warn
