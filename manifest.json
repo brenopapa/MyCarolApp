@@ -12,10 +12,10 @@
 				"pt-BR": "Data Validation"
 			},
 			"instanceProperties": {
-				"instanceType": "c1.nano",
 				"profile": "",
 				"properties": {
-					"dockerName": "datavalidation"
+					"dockerName": "datavalidation",
+					"instanceType": "c1.nano"
 				},
 				"preemptible": false,
 				"environments": {
