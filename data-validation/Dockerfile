@@ -1,13 +1,6 @@
-FROM gcr.io/labs-ai-apps-production/caroldatavalidation/datavalidation:0.0.1
+FROM localhost/datavalidation/0.0.1
 
-USER root
+COPY ./models/* /usr/dbt/models
 
-WORKDIR /usr/dbt
+COPY ./tests/* /usr/dbt/tests
 
-COPY . /usr/imports
-
-RUN mv /usr/imports/* /usr/dbt
-
-VOLUME [ "/usr/dbt" ]
-
-CMD ["/usr/dbt/entrypoint.sh"]
