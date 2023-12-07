@@ -1,0 +1,37 @@
+{
+	"batch": {
+		"processes": [{
+			"name": "Data_Validation",
+			"algorithmName": "datavalidation",
+			"algorithmDescription": {
+				"en-US": "Process for build only.",
+				"pt-BR": "Processo apenas para build"
+			},
+			"algorithmTitle": {
+				"en-US": "Data Validation",
+				"pt-BR": "Data Validation"
+			},
+			"instanceProperties": {
+				"profile": "",
+				"properties": {
+					"dockerName": "datavalidation",
+					"instanceType": "c1.nano"
+				},
+				"preemptible": false,
+				"environments": {
+					"PREFECT_LOGGING_HANDLERS_CONSOLE_FORMATTER": "json"
+				}
+			}
+		}]
+	},
+	"docker": [
+	{
+		"dockerName": "datavalidation",
+		"dockerTag": "0.0.1",
+		"gitBranch": "main",
+		"gitPath": "/data-validation",
+		"instanceType": "c1.nano",
+		"gitDockerfileName": "Dockerfile",
+		"gitRepoUrl": "https://github.com/brenopapa/test-pipelines"
+	}]
+}
