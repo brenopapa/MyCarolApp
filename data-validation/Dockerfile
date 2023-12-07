@@ -1,4 +1,4 @@
-FROM gcr.io/labs-ai-apps-production/caroldatavalidation/datavalidation:0.0.1
+FROM gcr.io/labs-ai-apps-production/caroldatavalidation/datavalidation:1.0.0
 
 COPY ./models/* /usr/dbt/models
 
