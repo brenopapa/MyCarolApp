@@ -1,37 +1,49 @@
 {
-	"batch": {
-		"processes": [{
-			"name": "Data_Validation",
-			"algorithmName": "datavalidation",
-			"algorithmDescription": {
-				"en-US": "Process for build only.",
-				"pt-BR": "Processo apenas para build"
-			},
-			"algorithmTitle": {
-				"en-US": "Data Validation",
-				"pt-BR": "Data Validation"
-			},
-			"instanceProperties": {
-				"profile": "",
-				"properties": {
-					"dockerName": "datavalidation",
-					"instanceType": "c1.nano"
-				},
-				"preemptible": false,
-				"environments": {
-					"PREFECT_LOGGING_HANDLERS_CONSOLE_FORMATTER": "json"
-				}
-			}
-		}]
-	},
-	"docker": [
-	{
-		"dockerName": "datavalidation",
-		"dockerTag": "0.0.1",
-		"gitBranch": "main",
-		"gitPath": "/data-validation",
-		"instanceType": "c1.nano",
-		"gitDockerfileName": "Dockerfile",
-		"gitRepoUrl": "https://github.com/brenopapa/test-pipelines"
-	}]
+    "defaults":
+    {
+        "cronExpressions":
+        [
+            "0 0 0 1 1 ? 2099"
+        ],
+        "prepareScripts":
+        [
+        ]
+    },
+    "pipelines":
+    [
+        {
+            "pipelineName": "testtimestamp",
+            "pipelineDescription": "Pipeline para processar dados de testtimestamp",
+            "outputDataModelName": "testprovision",
+            "overlapDeltaMinutes": 3600,
+            "saveToCds": true,
+            "saveToUnified": true,
+            "sendToSubscriptions": true,
+            "cronExpressions":
+            [
+                "0 0/5 5-14 ? * MON-FRI *",
+                "0 0/30 15-4 ? * MON-FRI *",
+                "0 0/10 * ? * SAT,SUN *"
+            ],
+            "timeZone": "America/Sao_Paulo",
+            "prepareScripts":
+            [
+                ""
+            ],
+            "processScript": "pipeline1.csql",
+            "sourceEntities":
+            {
+                "dataModels":
+                [
+                ],
+                "stagings":
+                [
+                    {
+                        "connectorName": "myconnector",
+                        "stagingName": "testconsolidate"
+                    }
+                ]
+            }
+        }
+    ]
 }

@@ -1,4 +1,26 @@
+WITH testconsolidate_testprovision AS (
+  SELECT
+    pk AS name,
+    '1' AS account_id
+    --metadata--
+  FROM (
+    SELECT * EXCEPT(ranking)
+    FROM (
+      SELECT ROW_NUMBER() OVER (partition BY mdmId ORDER BY mdmCounterForEntity DESC) ranking, *
+      FROM stg_myconnector_testconsolidate
+      --timestamp-- WHERE mdmCounterForEntity__DATETIME__ > SAFE.DATETIME(TIMESTAMP_MICROS(SAFE_CAST({{start_from}} AS INT64)))
+    )
+    WHERE ranking = 1
+  ) AS stg
+),
+combinedSources AS (
+  SELECT * FROM testconsolidate_testprovision
+),
+processedData AS (
+  SELECT *
+  FROM combinedSources
+  -- WHERE
+  -- rejection rules
+)
 
-
-
-
+SELECT * FROM processedData
