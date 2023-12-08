@@ -16,7 +16,7 @@ testconsolidate_testprovision AS (
     FROM (
       SELECT ROW_NUMBER() OVER (partition BY mdmId ORDER BY mdmCounterForEntity DESC) ranking, *
       FROM stg_myconnector_testconsolidate
-      --timestamp-- WHERE stg.mdmCounterForEntity__DATETIME__ > (SELECT TIMESTAMP_MICROS(maxStagingCounter) from max_stg_counter)
+      --timestamp-- WHERE stg.mdmCounterForEntity__DATETIME__ > (SELECT TIMESTAMP_MICROS(maxStagingCounter) from max_stg_counter) -- {{start_from}}
     )
     WHERE ranking = 1
   ) AS stg
