@@ -12,8 +12,8 @@
     "pipelines":
     [
         {
-            "pipelineName": "testtimestamp",
-            "pipelineDescription": "Pipeline para processar dados de testtimestamp",
+            "pipelineName": "arinvoiceinstallment",
+            "pipelineDescription": "Pipeline para processar dados de arinvoiceinstallment",
             "outputDataModelName": "testprovision",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
@@ -30,7 +30,7 @@
             [
                 ""
             ],
-            "processScript": "pipeline1.csql",
+            "processScript": "arinvoiceinstallment.csql",
             "sourceEntities":
             {
                 "dataModels":
@@ -44,6 +44,108 @@
                     }
                 ]
             }
-        }
+        },
+        {
+            "pipelineName": "arinvoicepayments",
+            "pipelineDescription": "Pipeline para processar dados de arinvoicepayments",
+            "outputDataModelName": "testprovision",
+            "overlapDeltaMinutes": 3600,
+            "saveToCds": true,
+            "saveToUnified": true,
+            "sendToSubscriptions": true,
+            "cronExpressions":
+            [
+                "0 0/5 5-14 ? * MON-FRI *",
+                "0 0/30 15-4 ? * MON-FRI *",
+                "0 0/10 * ? * SAT,SUN *"
+            ],
+            "timeZone": "America/Sao_Paulo",
+            "prepareScripts":
+            [
+                ""
+            ],
+            "processScript": "arinvoicepayments.csql",
+            "sourceEntities":
+            {
+                "dataModels":
+                [
+                ],
+                "stagings":
+                [
+                    {
+                        "connectorName": "myconnector",
+                        "stagingName": "testconsolidate"
+                    }
+                ]
+            }
+        },
+        {
+            "pipelineName": "clockinrecords",
+            "pipelineDescription": "Pipeline para processar dados de clockinrecords",
+            "outputDataModelName": "testprovision",
+            "overlapDeltaMinutes": 3600,
+            "saveToCds": true,
+            "saveToUnified": true,
+            "sendToSubscriptions": true,
+            "cronExpressions":
+            [
+                "0 0/5 5-14 ? * MON-FRI *",
+                "0 0/30 15-4 ? * MON-FRI *",
+                "0 0/10 * ? * SAT,SUN *"
+            ],
+            "timeZone": "America/Sao_Paulo",
+            "prepareScripts":
+            [
+                ""
+            ],
+            "processScript": "clockinrecords.csql",
+            "sourceEntities":
+            {
+                "dataModels":
+                [
+                ],
+                "stagings":
+                [
+                    {
+                        "connectorName": "myconnector",
+                        "stagingName": "testconsolidate"
+                    }
+                ]
+            }
+        },
+        {
+            "pipelineName": "device",
+            "pipelineDescription": "Pipeline para processar dados de device",
+            "outputDataModelName": "testprovision",
+            "overlapDeltaMinutes": 3600,
+            "saveToCds": true,
+            "saveToUnified": true,
+            "sendToSubscriptions": true,
+            "cronExpressions":
+            [
+                "0 0/5 5-14 ? * MON-FRI *",
+                "0 0/30 15-4 ? * MON-FRI *",
+                "0 0/10 * ? * SAT,SUN *"
+            ],
+            "timeZone": "America/Sao_Paulo",
+            "prepareScripts":
+            [
+                ""
+            ],
+            "processScript": "device.csql",
+            "sourceEntities":
+            {
+                "dataModels":
+                [
+                ],
+                "stagings":
+                [
+                    {
+                        "connectorName": "myconnector",
+                        "stagingName": "testconsolidate"
+                    }
+                ]
+            }
+        },
     ]
 }
