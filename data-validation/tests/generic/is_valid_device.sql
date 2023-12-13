@@ -1,10 +1,10 @@
-{% test is_valid_device(model, column_name) %}
+{% test is_valid_device(model) %}
 
 with validation as (
 
     select true 
     from 
-    clockinrecords c
+    {{ model }} c
     left join device d on d.devicecode = c.devicecode 
     where e.devicecode is null
 

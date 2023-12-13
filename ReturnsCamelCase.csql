@@ -1,0 +1,40 @@
+CREATE TEMP FUNCTION GetErpSource( erpId INT64)
+RETURNS STRUCT<Code INT64, Label STRING>
+AS (
+    CASE
+        WHEN erpId = 1 THEN STRUCT( 1 , 'RM')
+        WHEN erpId = 2 THEN STRUCT( 2 , 'PROTHEUS')
+        WHEN erpId = 3 THEN STRUCT( 3 , 'DTS' )
+        WHEN erpId = 4 THEN STRUCT( 4 , 'OTHERS' )
+        ELSE NULL
+    END    
+);
+
+WITH 
+
+test AS (
+  SELECT
+    'CamelCase' AS Source,
+    test_string AS test_string,
+    GetErpSource(test_long) AS test_long
+    --metadata--
+  FROM (
+    SELECT * EXCEPT(ranking)
+    FROM (
+      SELECT ROW_NUMBER() OVER (partition BY mdmId ORDER BY mdmCounterForEntity DESC) ranking, *
+      FROM stg_myconnector_testintakecamelcase
+    )
+    WHERE ranking = 1
+  ) AS stg
+),
+combinedSources AS (
+  SELECT * FROM test
+),
+processedData AS (
+  SELECT *
+  FROM combinedSources
+  -- WHERE
+  -- rejection rules
+)
+
+SELECT * FROM processedData
