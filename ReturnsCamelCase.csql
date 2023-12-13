@@ -16,7 +16,10 @@ test AS (
   SELECT
     'CamelCase' AS Source,
     test_string AS test_string,
-    GetErpSource(test_long) AS test_long
+            STRUCT (
+        STRUCT( 1 AS Code, 'CNPJ' AS Label) AS `taxidtype`,    
+        1 AS `number`
+    ) AS taxid
     --metadata--
   FROM (
     SELECT * EXCEPT(ranking)

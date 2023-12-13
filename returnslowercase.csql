@@ -1,22 +1,13 @@
-CREATE TEMP FUNCTION GetErpSource( erpId INT64)
-RETURNS STRUCT<code INT64, label STRING>
-AS (
-    CASE
-        WHEN erpId = 1 THEN STRUCT( 1 , 'RM')
-        WHEN erpId = 2 THEN STRUCT( 2 , 'PROTHEUS')
-        WHEN erpId = 3 THEN STRUCT( 3 , 'DTS' )
-        WHEN erpId = 4 THEN STRUCT( 4 , 'OTHERS' )
-        ELSE NULL
-    END    
-);
-
 WITH 
 
 test AS (
   SELECT
   'lowercase' AS Source,
     test_string AS test_string,
-    GetErpSource(test_long) AS test_long
+        STRUCT (
+        STRUCT( 1 AS code, 'CNPJ' AS label) AS `taxidtype`,    
+        1 AS `number`
+    ) AS taxid
     --metadata--
   FROM (
     SELECT * EXCEPT(ranking)
