@@ -12,8 +12,8 @@
     "pipelines":
     [
         {
-            "pipelineName": "arinvoiceinstallment",
-            "pipelineDescription": "Pipeline para processar dados de arinvoiceinstallment",
+            "pipelineName": "ignore_arinvoiceinstallment",
+            "pipelineDescription": "Pipeline para processar dados de ignore_arinvoiceinstallment",
             "outputDataModelName": "testprovision",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
@@ -30,7 +30,7 @@
             [
                 ""
             ],
-            "processScript": "arinvoiceinstallment.csql",
+            "processScript": "ignore_arinvoiceinstallment.csql",
             "sourceEntities":
             {
                 "dataModels":
@@ -46,8 +46,8 @@
             }
         },
         {
-            "pipelineName": "arinvoicepayments",
-            "pipelineDescription": "Pipeline para processar dados de arinvoicepayments",
+            "pipelineName": "ignore_clockinrecords",
+            "pipelineDescription": "Pipeline para processar dados de ignore_clockinrecords",
             "outputDataModelName": "testprovision",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
@@ -64,7 +64,7 @@
             [
                 ""
             ],
-            "processScript": "arinvoicepayments.csql",
+            "processScript": "ignore_clockinrecords.csql",
             "sourceEntities":
             {
                 "dataModels":
@@ -80,9 +80,9 @@
             }
         },
         {
-            "pipelineName": "clockinrecords",
-            "pipelineDescription": "Pipeline para processar dados de clockinrecords",
-            "outputDataModelName": "testprovision",
+            "pipelineName": "ReturnsCamelCase",
+            "pipelineDescription": "Pipeline para processar dados de ReturnsCamelCase",
+            "outputDataModelName": "camelcase",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
             "saveToUnified": true,
@@ -98,7 +98,7 @@
             [
                 ""
             ],
-            "processScript": "clockinrecords.csql",
+            "processScript": "ReturnsCamelCase.csql",
             "sourceEntities":
             {
                 "dataModels":
@@ -114,9 +114,9 @@
             }
         },
         {
-            "pipelineName": "device",
-            "pipelineDescription": "Pipeline para processar dados de device",
-            "outputDataModelName": "testprovision",
+            "pipelineName": "returnslowercase",
+            "pipelineDescription": "Pipeline para processar dados de returnslowercase",
+            "outputDataModelName": "lowercase",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
             "saveToUnified": true,
@@ -132,7 +132,7 @@
             [
                 ""
             ],
-            "processScript": "device.csql",
+            "processScript": "returnslowercase.csql",
             "sourceEntities":
             {
                 "dataModels":
