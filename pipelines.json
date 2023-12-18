@@ -19,6 +19,7 @@
             "saveToCds": true,
             "saveToUnified": true,
             "sendToSubscriptions": true,
+            "fanOut": false,
             "cronExpressions":
             [
                 "0 0 0 1 1 ? 2099"
@@ -51,6 +52,7 @@
             "saveToCds": true,
             "saveToUnified": true,
             "sendToSubscriptions": true,
+            "fanOut": false,
             "cronExpressions":
             [
                 "0 0 0 1 1 ? 2099"
@@ -83,6 +85,7 @@
             "saveToCds": true,
             "saveToUnified": true,
             "sendToSubscriptions": true,
+            "fanOut": false,
             "cronExpressions":
             [
                 "0 0 0 1 1 ? 2099"
@@ -115,6 +118,7 @@
             "saveToCds": true,
             "saveToUnified": true,
             "sendToSubscriptions": true,
+            "fanOut": false,
             "cronExpressions":
             [
                 "0 0 0 1 1 ? 2099"
@@ -138,6 +142,6 @@
                     }
                 ]
             }
-        },
+        }
     ]
 }
