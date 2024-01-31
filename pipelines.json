@@ -62,7 +62,7 @@
             [
                 ""
             ],
-            "processScript": "ignore_clockinrecords.csql",
+            "processScript": "invoice.csql",
             "sourceEntities":
             {
                 "dataModels":
