@@ -12,9 +12,9 @@
     "pipelines":
     [
         {
-            "pipelineName": "ignore_arinvoiceinstallment",
-            "pipelineDescription": "Pipeline para processar dados de ignore_arinvoiceinstallment",
-            "outputDataModelName": "testprovision",
+            "pipelineName": "customer",
+            "pipelineDescription": "Pipeline para processar dados de customer",
+            "outputDataModelName": "customer",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
             "saveToUnified": true,
@@ -29,7 +29,7 @@
             [
                 ""
             ],
-            "processScript": "ignore_arinvoiceinstallment.csql",
+            "processScript": "customer.csql",
             "sourceEntities":
             {
                 "dataModels":
@@ -45,9 +45,9 @@
             }
         },
         {
-            "pipelineName": "ignore_clockinrecords",
-            "pipelineDescription": "Pipeline para processar dados de ignore_clockinrecords",
-            "outputDataModelName": "testprovision",
+            "pipelineName": "invoice",
+            "pipelineDescription": "Pipeline para processar dados de invoice",
+            "outputDataModelName": "invoice",
             "overlapDeltaMinutes": 3600,
             "saveToCds": true,
             "saveToUnified": true,
@@ -63,72 +63,6 @@
                 ""
             ],
             "processScript": "ignore_clockinrecords.csql",
-            "sourceEntities":
-            {
-                "dataModels":
-                [
-                ],
-                "stagings":
-                [
-                    {
-                        "connectorName": "myconnector",
-                        "stagingName": "testconsolidate"
-                    }
-                ]
-            }
-        },
-        {
-            "pipelineName": "ReturnsCamelCase",
-            "pipelineDescription": "Pipeline para processar dados de ReturnsCamelCase",
-            "outputDataModelName": "camelcase",
-            "overlapDeltaMinutes": 3600,
-            "saveToCds": true,
-            "saveToUnified": true,
-            "sendToSubscriptions": true,
-            "fanOut": false,
-            "cronExpressions":
-            [
-                "0 0 0 1 1 ? 2099"
-            ],
-            "timeZone": "America/Sao_Paulo",
-            "prepareScripts":
-            [
-                ""
-            ],
-            "processScript": "ReturnsCamelCase.csql",
-            "sourceEntities":
-            {
-                "dataModels":
-                [
-                ],
-                "stagings":
-                [
-                    {
-                        "connectorName": "myconnector",
-                        "stagingName": "testconsolidate"
-                    }
-                ]
-            }
-        },
-        {
-            "pipelineName": "returnslowercase",
-            "pipelineDescription": "Pipeline para processar dados de returnslowercase",
-            "outputDataModelName": "lowercase",
-            "overlapDeltaMinutes": 3600,
-            "saveToCds": true,
-            "saveToUnified": true,
-            "sendToSubscriptions": true,
-            "fanOut": false,
-            "cronExpressions":
-            [
-                "0 0 0 1 1 ? 2099"
-            ],
-            "timeZone": "America/Sao_Paulo",
-            "prepareScripts":
-            [
-                ""
-            ],
-            "processScript": "returnslowercase.csql",
             "sourceEntities":
             {
                 "dataModels":
