@@ -1,0 +1,7 @@
+data-validation-reference
+data-validation/.venv
+data-validation/logs
+data-validation/my_project/analyses
+data-validation/my_project/macros
+data-validation/my_project/seeds
+data-validation/my_project/snapshots
