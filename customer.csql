@@ -1,28 +1,23 @@
-WITH 
-
-max_stg_counter AS (
-    SELECT COALESCE(MAX(mdmStagingCounter), UNIX_MICROS(TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY))) AS maxStagingCounter
-        FROM testprovision
-        WHERE _ingestionDatetime > SAFE.DATETIME(TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY))
-),
-
-testconsolidate_testprovision AS (
+WITH sa1_customer AS (
   SELECT
-    pk AS name,
-    '1' AS account_id
+    A1_COD AS code,
+    LEFT(GENERATE_UUID(), 8) AS name,
+    SAFE.PARSE_DATE('%Y%m%d',  A1_XDATAIN) AS birthdate,
+    'ERP' AS source,
+    CAST(FLOOR(1000000*RAND()) AS INT64) AS cgc
     --metadata--
   FROM (
     SELECT * EXCEPT(ranking)
     FROM (
-      SELECT ROW_NUMBER() OVER (partition BY mdmId ORDER BY mdmCounterForEntity DESC) ranking, *
-      FROM stg_myconnector_testconsolidate
-      --timestamp-- WHERE stg.mdmCounterForEntity__DATETIME__ > (SELECT TIMESTAMP_MICROS(maxStagingCounter) from max_stg_counter) -- {{start_from}}
+      SELECT ROW_NUMBER() OVER (partition BY A1_COD ORDER BY mdmCounterForEntity DESC) ranking, *
+      FROM stg_myconnector_sa1
+      --timestamp-- WHERE mdmCounterForEntity__DATETIME__ > SAFE.DATETIME(TIMESTAMP_MICROS(SAFE_CAST({{start_from}} AS INT64)))
     )
     WHERE ranking = 1
   ) AS stg
 ),
 combinedSources AS (
-  SELECT * FROM testconsolidate_testprovision
+  SELECT * FROM sa1_customer
 ),
 processedData AS (
   SELECT *
@@ -32,3 +27,5 @@ processedData AS (
 )
 
 SELECT * FROM processedData
+
+--internal--
