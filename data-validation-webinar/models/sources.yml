@@ -1,0 +1,72 @@
+version: 2
+
+sources:
+  - name: mycarolapp
+    database: "{{ target.project }}"
+    schema: "{{ target.dataset }}"
+
+    quoting:
+      database: true
+      schema: true
+      identifier: true
+
+    loader: 2C
+    loaded_at_field: _ingestionDateTime
+
+    freshness:
+      warn_after: {count: 30, period: day}
+      error_after: {count: 90, period: day}
+
+    tables:
+
+      - name: sa1 
+        identifier: stg_myconnector_sa1
+        columns:
+          - name: A1_COD
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+          - name: A1_NOME
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: se1
+        identifier: stg_myconnector_se1
+        columns:
+          - name: E1_CLIENTE
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+          - name: E1_VALOR
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: customer
+        identifier: customer
+        columns:
+          - name: xxxxxx
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+          - name: xxxxxx
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+      - name: invoice
+        identifier: invoice
+        columns:
+          - name: xxxxxx
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null
+
+          - name: xxxxxx
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_not_be_null

@@ -1,0 +1,70 @@
+{
+	"batch": {
+		"processes": [{
+			"name": "Data_Validation",
+			"algorithmName": "datavalidation",
+			"algorithmDescription": {
+				"en-US": "Data Validation Process for MyCarolApp.",
+				"pt-BR": "Data Validation Process for MyCarolApp."
+			},
+			"algorithmTitle": {
+				"en-US": "Data Validation",
+				"pt-BR": "Data Validation"
+			},
+			"instanceProperties": {
+				"profile": "",
+				"properties": {
+					"dockerName": "datavalidation",
+					"instanceType": "c1.nano"
+				},
+				"preemptible": false,
+				"environments": {
+					"PREFECT_LOGGING_HANDLERS_CONSOLE_FORMATTER": "json"
+				}
+			}
+		},
+		{
+			"name": "AI_Process",
+			"algorithmName": "aiprocess",
+			"algorithmDescription": {
+				"en-US": "AI Process to calculate something.",
+				"pt-BR": "AI Process to calculate something."
+			},
+			"algorithmTitle": {
+				"en-US": "AI Process MyCarolApp",
+				"pt-BR": "AI Process MyCarolApp"
+			},
+			"instanceProperties": {
+				"profile": "",
+				"properties": {
+					"dockerName": "aiprocess",
+					"instanceType": "c1.nano"
+				},
+				"preemptible": false,
+				"environments": {
+					"PREFECT_LOGGING_HANDLERS_CONSOLE_FORMATTER": "json"
+				}
+			}
+		}
+	]
+	},
+	"docker": [
+	{
+		"dockerName": "datavalidation",
+		"dockerTag": "0.0.1",
+		"gitBranch": "main",
+		"gitPath": "/data-validation",
+		"instanceType": "c1.nano",
+		"gitDockerfileName": "Dockerfile",
+		"gitRepoUrl": "https://github.com/brenopapa/mycarolapp"
+	},
+	{
+		"dockerName": "aiprocess",
+		"dockerTag": "0.0.1",
+		"gitBranch": "main",
+		"gitPath": "/ai-process",
+		"instanceType": "c1.nano",
+		"gitDockerfileName": "Dockerfile",
+		"gitRepoUrl": "https://github.com/brenopapa/mycarolapp"
+	}]
+}
