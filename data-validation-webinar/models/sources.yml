@@ -48,12 +48,12 @@ sources:
       - name: customer
         identifier: customer
         columns:
-          - name: xxxxxx
+          - name: code
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
 
-          - name: xxxxxx
+          - name: cgc
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
@@ -61,12 +61,13 @@ sources:
       - name: invoice
         identifier: invoice
         columns:
-          - name: xxxxxx
+          - name: accountcode
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
+              - is_valid_customer
 
-          - name: xxxxxx
+          - name: amount
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null

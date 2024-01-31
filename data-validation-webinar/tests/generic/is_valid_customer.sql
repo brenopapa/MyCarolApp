@@ -4,9 +4,9 @@ with validation as (
 
     select true 
     from 
-    {{ model }} c
-    left join device d on d.devicecode = c.devicecode 
-    where e.devicecode is null
+    {{ model }} m
+    left join customer c on m.account_code = c.code 
+    where c.code is null
 
 ),
 

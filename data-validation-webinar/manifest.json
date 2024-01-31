@@ -53,7 +53,7 @@
 		"dockerName": "datavalidation",
 		"dockerTag": "0.0.1",
 		"gitBranch": "main",
-		"gitPath": "/data-validation",
+		"gitPath": "/data-validation-webinar",
 		"instanceType": "c1.nano",
 		"gitDockerfileName": "Dockerfile",
 		"gitRepoUrl": "https://github.com/brenopapa/mycarolapp"
