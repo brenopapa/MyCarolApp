@@ -5,7 +5,7 @@ with validation as (
     select true 
     from 
     {{ model }} m
-    left join customer c on m.account_code = c.code 
+    left join {{ source('mycarolapp','customer') }} c on m.accountcode = c.code 
     where c.code is null
 
 ),
