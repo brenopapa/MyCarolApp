@@ -1,8 +1,3 @@
-datavalidation/.venv
-datavalidation/logs
-datavalidation/analyses
-datavalidation/macros
-datavalidation/seeds
-datavalidation/snapshots
+datavalidation/*
 .venv
 logs
