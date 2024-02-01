@@ -5,7 +5,7 @@ with validation as (
     select true 
     from 
     {{ model }} c
-    left join device d on d.devicecode = c.devicecode 
+    left join {{ source('clockin','device') }} d on d.devicecode = c.devicecode 
     where e.devicecode is null
 
 ),
