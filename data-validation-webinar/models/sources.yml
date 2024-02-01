@@ -60,13 +60,13 @@ sources:
 
       - name: invoice
         identifier: invoice
+        tests:
+          - is_valid_customer
         columns:
           - name: accountcode
             tests:
               - dbt_expectations.expect_column_to_exist
               - dbt_expectations.expect_column_values_to_not_be_null
-              - is_valid_customer
-
           - name: amount
             tests:
               - dbt_expectations.expect_column_to_exist
