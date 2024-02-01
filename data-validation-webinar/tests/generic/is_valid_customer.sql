@@ -1,4 +1,4 @@
-{% test is_valid_device(model) %}
+{% test is_valid_customer(model) %}
 
 with validation as (
 
