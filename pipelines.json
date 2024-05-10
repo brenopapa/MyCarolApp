@@ -29,7 +29,7 @@
             [
                 ""
             ],
-            "processScript": "customer.csql",
+            "processScript": "customer.sql",
             "sourceEntities":
             {
                 "dataModels":
