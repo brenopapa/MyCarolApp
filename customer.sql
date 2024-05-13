@@ -5,7 +5,7 @@ WITH sa1_customer AS (
     SAFE.PARSE_DATE('%Y%m%d',  A1_XDATAIN) AS birthdate,
     'ERP' AS source,
     CAST(FLOOR(1000000*RAND()) AS INT64) AS cgc
-    --metadata--
+, stg.mdmId as __mdmId, stg.mdmTenantId as __mdmTenantId, stg.mdmCounterForEntity as __mdmCounterForEntity, ARRAY[stg.mdmId] as __mdmStagingRecordIds, CASE WHEN stg.mdmEntityType is NULL THEN ARRAY[] ELSE ARRAY[SPLIT(stg.mdmEntityType, "#")[SAFE_OFFSET(0)]] END as __mdmSourceEntityNames, "84bc7902799e48bb9f0bd4082dd3db2d" as __mdmTaskId, "84bc7902799e48bb9f0bd4082dd3db2d" as __mdmSourceOperationTaskId
   FROM (
     SELECT * EXCEPT(ranking)
     FROM (
@@ -27,6 +27,6 @@ processedData AS (
   -- rejection rules
 )
 
-SELECT * except(mdmDeleted), CASE WHEN RAND() >= 0.3 THEN TRUE ELSE FALSE END AS mdmDeleted FROM processedData
+SELECT * , CASE WHEN RAND() >= 0.3 THEN TRUE ELSE FALSE END AS mdmDeleted FROM processedData
 
 --internal--
