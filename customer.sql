@@ -27,6 +27,6 @@ processedData AS (
   -- rejection rules
 )
 
-SELECT * FROM processedData
+SELECT * except(mdmDeleted), CASE WHEN RAND() >= 0.3 THEN TRUE ELSE FALSE END AS mdmDeleted FROM processedData
 
 --internal--
