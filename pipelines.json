@@ -76,6 +76,39 @@
                     }
                 ]
             }
+        },
+        {
+            "pipelineName": "funcs",
+            "pipelineDescription": "Pipeline para processar dados de funcs",
+            "outputDataModelName": "funcs",
+            "overlapDeltaMinutes": 3600,
+            "saveToCds": true,
+            "saveToUnified": true,
+            "sendToSubscriptions": true,
+            "fanOut": false,
+            "cronExpressions":
+            [
+                "0 0 0 1 1 ? 2099"
+            ],
+            "timeZone": "America/Sao_Paulo",
+            "prepareScripts":
+            [
+                ""
+            ],
+            "processScript": "createfunc.csql",
+            "sourceEntities":
+            {
+                "dataModels":
+                [
+                ],
+                "stagings":
+                [
+                    {
+                        "connectorName": "myconnector",
+                        "stagingName": "testconsolidate"
+                    }
+                ]
+            }
         }
     ]
 }
