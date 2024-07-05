@@ -27,7 +27,7 @@
             "timeZone": "America/Sao_Paulo",
             "prepareScripts":
             [
-                ""
+                "createfunc.csql"
             ],
             "processScript": "customer.sql",
             "sourceEntities":
