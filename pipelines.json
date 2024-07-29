@@ -1,47 +1,54 @@
 {
-    "defaults":
-    {
-        "cronExpressions":
-        [
+    "defaults": {
+        "cronExpressions": [
             "0 0 0 1 1 ? 2099"
         ],
-        "prepareScripts":
-        [
-        ]
+        "prepareScripts": []
     },
-    "pipelines":
-    [
+    "pipelines": [
         {
             "pipelineName": "customer",
             "pipelineDescription": "Pipeline para processar dados de customer",
             "outputDataModelName": "customer",
             "overlapDeltaMinutes": 3600,
-            "saveToCds": true,
-            "saveToUnified": true,
-            "sendToSubscriptions": true,
-            "fanOut": false,
-            "cronExpressions":
-            [
+            "fanOut": true,
+            "cronExpressions": [
                 "0 0 0 1 1 ? 2099"
             ],
             "timeZone": "America/Sao_Paulo",
-            "prepareScripts":
-            [
+            "prepareScripts": [
                 "createfunc.csql"
             ],
             "processScript": "customer.sql",
-            "sourceEntities":
-            {
-                "dataModels":
-                [
-                ],
-                "stagings":
-                [
+            "sourceEntities": {
+                "dataModels": [],
+                "stagings": [
                     {
                         "connectorName": "myconnector",
                         "stagingName": "testconsolidate"
                     }
                 ]
+            },
+            "sendTo": {
+                "bigquery": {
+                    "customer": true,
+                    "unified": true
+                },
+                "subscriptions": {
+                    "customer": true,
+                    "unified": true
+                }
+            },
+            "clear": {
+                "bigquery": {
+                    "unified": false,
+                    "customer": false
+                },
+                "subscriptions": {
+                    "unified": false,
+                    "customer": false
+                },
+                "realtime": false
             }
         },
         {
@@ -49,32 +56,44 @@
             "pipelineDescription": "Pipeline para processar dados de invoice",
             "outputDataModelName": "invoice",
             "overlapDeltaMinutes": 3600,
-            "saveToCds": true,
-            "saveToUnified": true,
-            "sendToSubscriptions": true,
-            "fanOut": false,
-            "cronExpressions":
-            [
+            "fanOut": true,
+            "cronExpressions": [
                 "0 0 0 1 1 ? 2099"
             ],
             "timeZone": "America/Sao_Paulo",
-            "prepareScripts":
-            [
+            "prepareScripts": [
                 ""
             ],
             "processScript": "invoice.csql",
-            "sourceEntities":
-            {
-                "dataModels":
-                [
-                ],
-                "stagings":
-                [
+            "sourceEntities": {
+                "dataModels": [],
+                "stagings": [
                     {
                         "connectorName": "myconnector",
                         "stagingName": "testconsolidate"
                     }
                 ]
+            },
+            "sendTo": {
+                "bigquery": {
+                    "customer": true,
+                    "unified": true
+                },
+                "subscriptions": {
+                    "customer": true,
+                    "unified": true
+                }
+            },
+            "clear": {
+                "bigquery": {
+                    "unified": false,
+                    "customer": false
+                },
+                "subscriptions": {
+                    "unified": false,
+                    "customer": false
+                },
+                "realtime": false
             }
         },
         {
@@ -82,33 +101,46 @@
             "pipelineDescription": "Pipeline para processar dados de funcs",
             "outputDataModelName": "funcs",
             "overlapDeltaMinutes": 3600,
-            "saveToCds": true,
-            "saveToUnified": true,
-            "sendToSubscriptions": true,
-            "fanOut": false,
-            "cronExpressions":
-            [
+            "fanOut": true,
+            "cronExpressions": [
                 "0 0 0 1 1 ? 2099"
             ],
             "timeZone": "America/Sao_Paulo",
-            "prepareScripts":
-            [
+            "prepareScripts": [
                 ""
             ],
             "processScript": "createfunc.csql",
-            "sourceEntities":
-            {
-                "dataModels":
-                [
-                ],
-                "stagings":
-                [
+            "sourceEntities": {
+                "dataModels": [],
+                "stagings": [
                     {
                         "connectorName": "myconnector",
                         "stagingName": "testconsolidate"
                     }
                 ]
+            },
+            "sendTo": {
+                "bigquery": {
+                    "customer": true,
+                    "unified": true
+                },
+                "subscriptions": {
+                    "customer": true,
+                    "unified": true
+                }
+            },
+            "clear": {
+                "bigquery": {
+                    "unified": false,
+                    "customer": false
+                },
+                "subscriptions": {
+                    "unified": false,
+                    "customer": false
+                },
+                "realtime": false
             }
         }
-    ]
+    ],
+    "version": "V2"
 }
