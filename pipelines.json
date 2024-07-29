@@ -23,7 +23,6 @@
         "tempTableRetentionPeriodDays": 1,
         "useBatchNotification": false,
         "checkExistsDataToProcess": false,
-        "additionalParameters": { "key":  "value" },
         "fanOut": true,
         "sendTo": {
           "realtime": true,
