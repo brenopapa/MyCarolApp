@@ -44,10 +44,7 @@
                     "unified": false,
                     "customer": false
                 },
-                "subscriptions": {
-                    "unified": false,
-                    "customer": false
-                },
+
                 "realtime": false
             }
         },
@@ -89,10 +86,7 @@
                     "unified": false,
                     "customer": false
                 },
-                "subscriptions": {
-                    "unified": false,
-                    "customer": false
-                },
+
                 "realtime": false
             }
         },
@@ -134,10 +128,7 @@
                     "unified": false,
                     "customer": false
                 },
-                "subscriptions": {
-                    "unified": false,
-                    "customer": false
-                },
+
                 "realtime": false
             }
         }
