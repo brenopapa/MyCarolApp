@@ -9,7 +9,7 @@
         "pipelineName": "customer",
         "pipelineDescription": "TEST",
         "outputDataModelName": "customer",
-        "cronExpressions": [ "0 33 16 29 7 ? 2023" ],
+        "cronExpressions": [ "0 38 16 29 7 ? 2024" ],
         "timeZone": "America/Sao_Paulo",
         "processScript": "customer.sql",
         "prepareScripts": [ "" ],
