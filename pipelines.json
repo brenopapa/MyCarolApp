@@ -18,9 +18,7 @@
         "dataModels": [],
         "stagings": []
       },
-      "fanOut": true,
       "sendTo": {
-        "realtime": true,
         "bigquery": {
           "customer": true,
           "unified": true
@@ -28,15 +26,21 @@
         "subscriptions": {
           "customer": true,
           "unified": true
-        }
+        },
+        "realtime": false
       },
       "clear": {
-        "realtime": true,
         "bigquery": {
-          "customer": true,
-          "unified": true
-        }
-      }
+          "unified": true,
+          "customer": true
+        },
+        "subscriptions": {
+          "unified": false,
+          "customer": false
+        },
+        "realtime": false
+      },
+      "fanOut": true
     }
   ]
 }
