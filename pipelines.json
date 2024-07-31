@@ -1,47 +1,49 @@
 {
-    "version": "V2",
-    "defaults": {
-      "cronExpressions": [ "0 */5 0 ? * * *" ],
-      "prepareScripts": [ "" ]
-    },
-    "pipelines": [
+  "defaults": {
+      "cronExpressions": [
+          "0 0 7,19 ? * * *"
+      ],
+      "prepareScripts": []
+  },
+  "pipelines": [
       {
-        "pipelineName": "customer",
-        "pipelineDescription": "TEST",
-        "outputDataModelName": "customer",
-        "cronExpressions": [ "0 42 16 29 7 ? 2024" ],
-        "timeZone": "America/Sao_Paulo",
-        "processScript": "customer.sql",
-        "prepareScripts": [ "" ],
-        "sourceEntities":
-        {
-          "dataModels": [],
-          "stagings":
-          []
-        },
-        "overlapDeltaMinutes": 120,
-        "tempTableRetentionPeriodDays": 1,
-        "useBatchNotification": false,
-        "checkExistsDataToProcess": false,
-        "fanOut": true,
-        "sendTo": {
-          "realtime": true,
-          "bigquery": {
-            "customer": true,
-            "unified": true
+          "pipelineName": "customer",
+          "pipelineDescription": "customer",
+          "outputDataModelName": "customer",
+          "overlapDeltaMinutes": 1440,
+          "cronExpressions": [
+              "0 0 0,12 ? * * *"
+          ],
+          "timeZone": "America/Sao_Paulo",
+          "processScript": "customer.sql",
+          "sourceEntities": {
+              "dataModels": [],
+              "stagings": []
           },
-          "subscriptions": {
-            "customer": true,
-            "unified": true
-          }
-        },
-        "clear": {
-          "realtime": true,
-          "bigquery": {
-            "customer": true,
-            "unified": true
-          }
-        }
+          "sendTo": {
+              "bigquery": {
+                  "customer": true,
+                  "unified": true
+              },
+              "subscriptions": {
+                  "customer": true,
+                  "unified": true
+              },
+              "realtime": false
+          },
+          "clear": {
+              "bigquery": {
+                  "unified": false,
+                  "customer": false
+              },
+              "subscriptions": {
+                  "unified": false,
+                  "customer": false
+              },
+              "realtime": false
+          },
+          "fanOut": true
       }
-    ]
-  }
+  ],
+  "version": "V2"
+}
