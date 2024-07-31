@@ -33,8 +33,8 @@
           },
           "clear": {
               "bigquery": {
-                  "unified": false,
-                  "customer": false
+                  "unified": true,
+                  "customer": true
               },
               "subscriptions": {
                   "unified": false,
