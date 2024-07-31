@@ -10,7 +10,7 @@
       "pipelineDescription": "customer",
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 120,
-      "cronExpressions": ["0 10 18 31 7 ? 2024"],
+      "cronExpressions": ["0 10 18 31 7 ? 2029"],
       "timeZone": "America/Sao_Paulo",
       "processScript": "customer.sql",
       "prepareScripts": [],
