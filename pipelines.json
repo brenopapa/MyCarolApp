@@ -1,5 +1,4 @@
 {
-  "version": "V2",
   "defaults": {
     "cronExpressions": ["0 10 18 31 7 ? 2024"],
     "prepareScripts": []
@@ -42,5 +41,6 @@
       },
       "fanOut": true
     }
-  ]
+  ],
+  "version": "V2"
 }
