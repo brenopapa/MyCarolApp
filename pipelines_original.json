@@ -1,6 +1,6 @@
 {
   "defaults": {
-    "cronExpressions": ["0 0 7,19 ? * * *"],
+    "cronExpressions": ["0 10 18 31 7 ? 2024"],
     "prepareScripts": []
   },
   "pipelines": [
@@ -9,7 +9,7 @@
       "pipelineDescription": "customer",
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 1440,
-      "cronExpressions": ["0 5,15,25,35,45,55 * * * ?"],
+      "cronExpressions": ["0 10 18 31 7 ? 2024"],
       "timeZone": "America/Sao_Paulo",
       "processScript": "customer.sql",
       "prepareScripts": [],
