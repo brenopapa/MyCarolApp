@@ -1,4 +1,5 @@
 {
+  "version": "V2",
   "defaults": {
     "cronExpressions": ["0 10 18 31 7 ? 2024"],
     "prepareScripts": []
@@ -40,7 +41,44 @@
         "realtime": false
       },
       "fanOut": true
+    },
+    {
+      "pipelineName": "createfunc",
+      "pipelineDescription": "createfunc",
+      "outputDataModelName": "customer",
+      "overlapDeltaMinutes": 120,
+      "cronExpressions": ["0 10 18 31 7 ? 2029"],
+      "timeZone": "America/Sao_Paulo",
+      "processScript": "createfunc.sql",
+      "prepareScripts": [],
+      "sourceEntities": {
+        "dataModels": [],
+        "stagings": []
+      },
+      "sendTo": {
+        "bigquery": {
+          "customer": true,
+          "unified": true
+        },
+        "subscriptions": {
+          "customer": true,
+          "unified": true
+        },
+        "realtime": false
+      },
+      "clear": {
+        "bigquery": {
+          "unified": true,
+          "customer": true
+        },
+        "subscriptions": {
+          "unified": false,
+          "customer": false
+        },
+        "realtime": false
+      },
+      "fanOut": true
     }
-  ],
-  "version": "V2"
+
+  ]
 }

@@ -1,21 +1,13 @@
-DECLARE currentTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-DECLARE project_id STRING DEFAULT (SELECT table_catalog FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'ingestion_stg_internal_app_setting' LIMIT 1);
-DECLARE dataset_id STRING DEFAULT (SELECT table_schema FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'ingestion_stg_internal_app_setting' LIMIT 1);
+CREATE OR REPLACE FUNCTION TESTEFUNC(mdmTenantId STRING, codColigada INT64, idPartida INT64)
+RETURNS STRING
+AS (
+    TO_HEX(MD5(LOWER(CONCAT(
+        mdmTenantId,
+        'AccountingEntry{',
+            '"CodigoColigada":"', codColigada, '",',
+            '"IdentificacaoPartida":"', idPartida, '",',
+            '"ERP":"RM",',
+        '}'
+    ))))
+);
 
-
-EXECUTE IMMEDIATE "CREATE SCHEMA IF NOT EXISTS`" || project_id || ".gooddata`;";
-
-EXECUTE IMMEDIATE 
-
-"CREATE OR REPLACE VIEW `" || project_id || ".gooddata.cfop` as (" || 
-  "SELECT A1_DESC, A1_CONTA " || 
-  "FROM `" || project_id || "." || dataset_id || ".ingestion_stg_myconnector_sa1`)"
-
-;
-EXECUTE IMMEDIATE 
-
-"CREATE OR REPLACE VIEW `" || project_id || ".gooddata.cfop` as (" || 
-  "SELECT A1_DESC, A1_CONTA " || 
-  "FROM `" || project_id || "." || dataset_id || ".ingestion_stg_myconnector_sa1`)"
-
-;
