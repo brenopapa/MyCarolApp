@@ -1,9 +1,14 @@
-FROM gcr.io/labs-ai-apps-production/caroldatavalidation/datavalidation:1.0.0
+# Usa a imagem Python slim-buster
+FROM python:3.9-slim-buster
 
-COPY ./models /usr/dbt/models
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
 
-COPY ./tests /usr/dbt/tests
+# Copia todos os arquivos da pasta src para a pasta /app dentro do contêiner
+COPY src/ /app/
 
-#COPY ./packages.yml /usr/dbt
+# Faz a instalação de dependencias
+RUN pip install --no-cache-dir -r requirements.txt
 
-#RUN dbt deps
+# Define o comando para rodar o script main.py
+CMD ["python", "main.py"]

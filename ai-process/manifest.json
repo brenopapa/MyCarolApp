@@ -1,0 +1,39 @@
+{
+	"batch": {
+		"processes": [{
+			"name": "Some_AI_Process",
+			"algorithmName": "someaiprocess",
+			"algorithmDescription": {
+				"en-US": "Some_AI_Process for MyCarolApp.",
+				"pt-BR": "Some_AI_Process for MyCarolApp."
+			},
+			"algorithmTitle": {
+				"en-US": "Some AI Process",
+				"pt-BR": "Some AI Process"
+			},
+			"instanceProperties": {
+				"profile": "",
+				"properties": {
+					"dockerName": "some_ai_process",
+					"instanceType": "c1.nano"
+				},
+				"preemptible": false,
+				"environments": {
+					"PREFECT_LOGGING_HANDLERS_CONSOLE_FORMATTER": "json"
+				}
+			}
+		}
+	]
+	},
+	"docker": [
+		{
+			"dockerName": "some_ai_process",
+			"dockerTag": "0.0.1",
+			"gitBranch": "main",
+			"gitPath": "/ai-process",
+			"instanceType": "c1.nano",
+			"gitDockerfileName": "Dockerfile",
+			"gitRepoUrl": "https://github.com/brenopapa/mycarolapp"
+		}
+	]
+}
