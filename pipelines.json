@@ -7,6 +7,7 @@
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 120,
       "cronExpressions": ["0 40 9 ? * * *"],
+      "timeZone": "America/Sao_Paulo",
       "processScript": "customer.sql",
       "prepareScripts": [],
       "sourceEntities": {
@@ -43,6 +44,7 @@
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 120,
       "cronExpressions": ["0 10 18 31 7 ? 2029"],
+      "timeZone": "America/Sao_Paulo",
       "processScript": "createfunc.sql",
       "prepareScripts": [],
       "sourceEntities": {
