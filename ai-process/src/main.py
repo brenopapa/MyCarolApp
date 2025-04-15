@@ -6,7 +6,7 @@ carol = Carol()
 task = Tasks(carol).get_task(os.environ["LONGTASKID"])
 
 # Tempo total (10 minutos) em segundos
-tempo_total = 10 * 60
+tempo_total = 60 * 60
 
 # Intervalo de 10 segundos
 intervalo = 10
