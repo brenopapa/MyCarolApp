@@ -9,6 +9,9 @@
       "cronExpressions": ["0 40 9 ? * * *"],
       "timeZone": "America/Sao_Paulo",
       "processScript": "customer.sql",
+      "nextPipelines": [
+        "records"
+      ],
       "prepareScripts": [],
       "sourceEntities": {
         "dataModels": [],
