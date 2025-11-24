@@ -33,6 +33,7 @@
 			"gitPath": "/ai-process",
 			"instanceType": "c1.nano",
 			"gitDockerfileName": "Dockerfile",
+			"preemptible": false,
 			"gitRepoUrl": "https://github.com/brenopapa/mycarolapp"
 		}
 	]
