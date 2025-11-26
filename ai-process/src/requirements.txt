@@ -1,1 +1,2 @@
-pycarol
+requests
+dotenv
