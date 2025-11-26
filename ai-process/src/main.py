@@ -1,4 +1,9 @@
-import os, time, requests
+import os, time, requests, json
+
+from dotenv import load_dotenv
+
+# Carrega o .env assim que esse módulo for importado
+load_dotenv()
 
 task = os.environ["LONGTASKID"]
 token = os.environ["CAROLAPPOAUTH"]
@@ -17,19 +22,19 @@ intervalo = 10
 # Loop que executa durante 10 minutos, com intervalo de 10 segundos
 inicio = time.time()
 while time.time() - inicio < tempo_total:
-    
+
     log = [{
             "mdmTaskId": task,
             "mdmLogMessage": f"TASK EXECUTANDO!!! ... {time.time()}",
             "mdmLogLevel": "INFO"
         }]
     
-    url = f"https://{api_subdomain}.{carol_domain}/api/v3/tasks/{task}/logs"
+    url = f"https://{api_subdomain}.carol.ai/api/v3/tasks/{task}/logs"
 
     print("Enviando log:", log)
     print("Para o endpoint:", url)
 
-    requests.post(
+    resp = requests.post(
         url,
         headers={
             'Accept': 'application/json',
@@ -37,8 +42,10 @@ while time.time() - inicio < tempo_total:
             'X-Auth-Key': token,
             'X-Auth-ConnectorId': connector,
         },
-        data=log)
+        data=json.dumps(log))
     
+    print(f"{resp} - {resp.text}")
+
     time.sleep(intervalo)  # Espera 10 segundos antes de repetir
 
 
