@@ -15,7 +15,12 @@
       "prepareScripts": [],
       "sourceEntities": {
         "dataModels": [],
-        "stagings": []
+        "stagings": [
+          {
+            "connectorName": "internal",
+            "stagingName": "app_setting"
+          }
+        ]
       },
       "sendTo": {
         "bigquery": {
