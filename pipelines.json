@@ -6,7 +6,7 @@
       "pipelineDescription": "customer",
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 120,
-      "cronExpressions": ["0 40 9 ? * * *"],
+      "cronExpressions": ["0 05 16 ? * * *"],
       "timeZone": "America/Sao_Paulo",
       "processScript": "customer.sql",
       "nextPipelines": [
