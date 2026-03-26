@@ -35,8 +35,8 @@
       },
       "clear": {
         "bigquery": {
-          "unified": true,
-          "customer": true
+          "unified": false,
+          "customer": false
         },
         "subscriptions": {
           "unified": false,
@@ -72,8 +72,8 @@
       },
       "clear": {
         "bigquery": {
-          "unified": true,
-          "customer": true
+          "unified": false,
+          "customer": false
         },
         "subscriptions": {
           "unified": false,
