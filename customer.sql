@@ -1,4 +1,7 @@
-MERGE ingestion_customer AS target
+DECLARE result STRING;
+  SET result = 'done';
+
+  MERGE ingestion_customer AS target
   USING (
       SELECT 'a8a201fd4d78325fdf9edcc91834963d' as __mdmId, 0 as __mdmCounterForEntity
       FROM ingestion_stg_agent_employee
@@ -7,8 +10,9 @@ MERGE ingestion_customer AS target
   ) AS source
   ON target.__mdmId = source.__mdmId
   WHEN MATCHED THEN
-      UPDATE SET
-          target.__mdmCounterForEntity = source.__mdmCounterForEntity
+      UPDATE SET target.__mdmCounterForEntity = source.__mdmCounterForEntity
   WHEN NOT MATCHED THEN
       INSERT (__mdmId, __mdmCounterForEntity)
-      VALUES (source.__mdmId, source.__mdmCounterForEntity)
+      VALUES (source.__mdmId, source.__mdmCounterForEntity);
+
+  SELECT result WHERE 1=2;
