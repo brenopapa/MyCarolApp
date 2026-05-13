@@ -15,4 +15,4 @@ DECLARE result STRING;
       INSERT (mdmId, mdmCounterForEntity)
       VALUES (source.mdmId, source.mdmCounterForEntity);
 
-  SELECT result WHERE 1=2;
+  SELECT result FROM (SELECT 1) WHERE 1=2;
