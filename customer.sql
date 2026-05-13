@@ -10,7 +10,7 @@ DECLARE result STRING;
   ) AS source
   ON target.mdmId = source.mdmId
   WHEN MATCHED THEN
-      UPDATE SET target.__mdmCounterForEntity = source.mdmCounterForEntity
+      UPDATE SET target.mdmCounterForEntity = source.mdmCounterForEntity
   WHEN NOT MATCHED THEN
       INSERT (mdmId, mdmCounterForEntity)
       VALUES (source.mdmId, source.mdmCounterForEntity);
