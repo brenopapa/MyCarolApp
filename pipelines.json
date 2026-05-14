@@ -7,7 +7,7 @@
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 120,
       "cronExpressions": ["0 */35 * ? * * *"],
-      "timeZone": "",
+      "timeZone": "America/Sao_Paulo",
       "processScript": "customer.sql",
       "nextPipelines": [
         ""
