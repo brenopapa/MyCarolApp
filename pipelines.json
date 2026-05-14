@@ -51,7 +51,7 @@
       "pipelineDescription": "records",
       "outputDataModelName": "records",
       "overlapDeltaMinutes": 120,
-      "cronExpressions": ["0 10 18 31 7 ? 2029"],
+      "cronExpressions": ["0 */15 * ? * * *"],
       "timeZone": "America/Sao_Paulo",
       "processScript": "records.sql",
       "prepareScripts": [],
