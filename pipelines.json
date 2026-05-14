@@ -7,35 +7,31 @@
       "outputDataModelName": "customer",
       "overlapDeltaMinutes": 120,
       "cronExpressions": ["0 */35 * ? * * *"],
-      "timeZone": "America/Sao_Paulo",
+      "timeZone": "",
       "processScript": "customer.sql",
       "nextPipelines": [
-        "records"
+        ""
       ],
       "prepareScripts": [],
       "sourceEntities": {
         "dataModels": [],
         "stagings": [
-          {
-            "connectorName": "internal",
-            "stagingName": "app_setting"
-          }
         ]
       },
       "sendTo": {
         "bigquery": {
           "customer": true,
-          "unified": true
+          "unified": false
         },
         "subscriptions": {
           "customer": true,
-          "unified": true
+          "unified": false
         },
         "realtime": false
       },
       "clear": {
         "bigquery": {
-          "unified": false,
+          "unified": true,
           "customer": false
         },
         "subscriptions": {
