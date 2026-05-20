@@ -409,33 +409,7 @@ processedData AS (
     FORMAT_DATE('%Y-%m', data_vencimento)                          AS competencia_vencimento,
     FORMAT_DATE('%Y-%m', data_emissao)                             AS competencia_emissao,
 
-    -- Texto narrativo para indexação semântica (input do agente de IA)
-    TRIM(CONCAT(
-      'Carteira: ', carteira, '. ',
-      'Título: ', prefixo, '-', numero, '-', parcela,
-        IF(desc_tipo_titulo IS NOT NULL, CONCAT(' (', desc_tipo_titulo, ')'), ''), '. ',
-      'Parceiro: ', COALESCE(nome_parceiro, 'Não informado'),
-        IF(cnpj_cpf_parceiro IS NOT NULL, CONCAT(' — CNPJ/CPF: ', cnpj_cpf_parceiro), ''),
-        IF(municipio_parceiro IS NOT NULL,
-           CONCAT(' — ', municipio_parceiro, '/', COALESCE(estado_parceiro, '')), ''), '. ',
-      'Valor original: R$ ', FORMAT('%.2f', COALESCE(valor_original, 0)), '. ',
-      'Saldo em aberto: R$ ', FORMAT('%.2f', COALESCE(saldo_aberto, 0)), '. ',
-      IF(multa > 0,
-         CONCAT('Multa: R$ ', FORMAT('%.2f', multa), '. '), ''),
-      IF(juros_acumulados > 0,
-         CONCAT('Juros: R$ ', FORMAT('%.2f', juros_acumulados), '. '), ''),
-      'Emissão: ', COALESCE(FORMAT_DATE('%d/%m/%Y', data_emissao), 'não informada'), '. ',
-      'Vencimento: ', COALESCE(FORMAT_DATE('%d/%m/%Y', data_vencimento), 'não informado'), '. ',
-      IF(desc_natureza_financeira IS NOT NULL,
-         CONCAT('Natureza financeira: ', desc_natureza_financeira, '. '), ''),
-      IF(desc_centro_custo IS NOT NULL,
-         CONCAT('Centro de custo: ', desc_centro_custo, '. '), ''),
-      IF(agencia IS NOT NULL,
-         CONCAT('Portador: ag. ', agencia,
-           IF(conta_corrente IS NOT NULL, CONCAT(' / cc. ', conta_corrente), ''), '. '), ''),
-      IF(historico IS NOT NULL,
-         CONCAT('Histórico: ', historico, '.'), '')
-    ))                                                             AS text_concat
+
 
   FROM visao_financeira
   -- WHERE
