@@ -417,18 +417,4 @@ processedData AS (
 ),
 
 
--- EMBEDDINGS — Representação vetorial para busca semântica
-
-
-embeddedData AS (
-  SELECT
-    * EXCEPT(ml_generate_embedding_result, ml_generate_embedding_statistics, ml_generate_embedding_status),
-    ml_generate_embedding_result AS embedded_content_128
-  FROM ML.GENERATE_EMBEDDING(
-    MODEL `ideia-dataops-prod.models.text_embedder`,
-    (SELECT *, text_concat AS content FROM processedData),
-    STRUCT(TRUE AS flatten_json_output, 'RETRIEVAL_DOCUMENT' AS task_type, 128 AS OUTPUT_DIMENSIONALITY)
-  )
-)
-
-SELECT * FROM embeddedData
+select * from processedData
