@@ -12,6 +12,7 @@ env_domain = os.environ["ENV_DOMAIN"]
 carol_tenant = os.environ["CAROLTENANT"]
 carol_domain = os.environ["CAROLDOMAIN"]
 api_subdomain = os.environ["API_SUBDOMAIN"]
+test_secret = os.environ["TEST_SECRET"]
 
 # Tempo total (10 minutos) em segundos
 tempo_total = 60 * 60
@@ -25,7 +26,7 @@ while time.time() - inicio < tempo_total:
 
     log = [{
             "mdmTaskId": task,
-            "mdmLogMessage": f"TASK EXECUTANDO!!! ... {time.time()}",
+            "mdmLogMessage": f"TASK EXECUTANDO!!! ... {time.time()} - {test_secret}",
             "mdmLogLevel": "INFO"
         }]
     
